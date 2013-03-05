@@ -1,11 +1,20 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" media="screen"/>
+</head>
   <body>
-  <table>
-  <th>Command</th>
-  <th>Total Requests</th>
-  <th>Total Time Taken</th>
-  <th>Requests per second</th>
-  <th>Max Time taken</th>
+  <table  class="table table-striped table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>Command</th>
+    <th>Total Requests</th>
+    <th>Total Time Taken</th>
+    <th>Requests per second</th>
+    <th>Max Time taken</th>
+    </tr>
+    </thead>
+    <tbody>
     <% _.each(results, function(value, key) { %> 
       <tr>
         <td><%= key %></td>
@@ -15,6 +24,7 @@
         <td><%= value.max %>ms</td>
       </tr> 
     <% }); %>
+    </tbody>
   </table>
   </body>
 </html>
