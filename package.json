@@ -1,0 +1,25 @@
+{
+  "name": "redis-benchmark-parser",
+  "version": "0.0.1",
+  "description": "Parses Redis Benchmark results and lets you compare one result with other",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+    "underscore": "1.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sreeix/redis-benchmark-parser.git"
+  },
+  "keywords": [
+    "redis",
+    "benchmark",
+    "tools",
+    "command",
+    "line"
+  ],
+  "author": "V Sreekanth <sreeix@gmail.com>",
+  "license": "BSD"
+}

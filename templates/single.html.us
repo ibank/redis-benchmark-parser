@@ -1,0 +1,20 @@
+<html>
+  <body>
+  <table>
+  <th>Command</th>
+  <th>Total Requests</th>
+  <th>Total Time Taken</th>
+  <th>Requests per second</th>
+  <th>Max Time taken</th>
+    <% _.each(results, function(value, key) { %> 
+      <tr>
+        <td><%= key %></td>
+        <td><%= value.requests %></td>
+        <td><%= value.totalTime %> seconds</td>
+        <td><%= value.requestPerSecond %></td>
+        <td><%= value.max %>ms</td>
+      </tr> 
+    <% }); %>
+  </table>
+  </body>
+</html>

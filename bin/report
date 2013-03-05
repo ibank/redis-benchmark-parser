@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    _ = require('underscore')
+    path = require('path'),
+    redisBenchmarkParser = require('../index');
+
+var fileContent = function (file, callback) {
+  return fs.readFile(file, 'utf-8', callback);
+};
+
+var pipeContent = function (input, callback) {
+  var data='';
+  input.resume();
+  input.setEncoding('utf8');
+  input.on('data', function(chunk) {
+    data += chunk;
+  });
+  input.on('end', function() {
+    return callback(null, data);
+   });
+};
+
+var firstFile = process.argv[2],
+    list = _.template(fs.readFileSync(path.join(__dirname,"../templates/single.html.us"), "utf-8")),
+    content = firstFile ? _.partial(fileContent, firstFile) : _.partial(pipeContent, process.stdin);
+
+content(function (err, res) {
+  if(err){
+    console.log("failed "+ err);
+    process.exit(1);
+  }
+  fs.writeFileSync("output.html", list({results: redisBenchmarkParser.parse(res)}));
+  console.log('Run open output.html to view the report');
+  process.exit(0);
+});
