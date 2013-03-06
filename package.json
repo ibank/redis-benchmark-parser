@@ -1,6 +1,6 @@
 {
   "name": "redis-benchmark-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Parses Redis Benchmark results and lets you compare one result with other",
   "main": "index.js",
   "scripts": {

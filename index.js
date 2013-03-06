@@ -5,8 +5,6 @@ var redisBenchmarkParser = {
     commandSplits = _.filter(content.split(/^.*======(.*)======/mi), function  (item) {
       return !_.isEmpty(item) && !item.match(/^.*:.*/);
     });
-    console.log(commandSplits);
-    console.log("------------------------------");
     for(var i = 0; i < commandSplits.length; i++){
       (i % 2 === 0 )? data.commands.push(commandSplits[i]) :data.results.push(commandSplits[i])
     }
