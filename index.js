@@ -2,9 +2,11 @@ var _ = require('underscore');
 var redisBenchmarkParser = {
   parse : function (content) {
     var commandSplits, data = {commands: [], results:[]}, results = {};
-    commandSplits = _.filter(content.split(/======(.*)======/mi), function  (item) {
-      return !_.isEmpty(item);
+    commandSplits = _.filter(content.split(/^.*======(.*)======/mi), function  (item) {
+      return !_.isEmpty(item) && !item.match(/^.*:.*/);
     });
+    console.log(commandSplits);
+    console.log("------------------------------");
     for(var i = 0; i < commandSplits.length; i++){
       (i % 2 === 0 )? data.commands.push(commandSplits[i]) :data.results.push(commandSplits[i])
     }
@@ -16,7 +18,8 @@ var redisBenchmarkParser = {
     }
     return results;
   },
-  compare: function(content){
+  compare: function(){
+    var contents = _.toArray(arguments)
     
   }
 };    
