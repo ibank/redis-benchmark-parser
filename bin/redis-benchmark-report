@@ -3,6 +3,7 @@
 var fs = require('fs'),
     _ = require('underscore')
     path = require('path'),
+    clc = require('cli-color'),
     redisBenchmarkParser = require('../index');
 
 var fileContent = function (file, callback) {
@@ -27,10 +28,10 @@ var firstFile = process.argv[2],
 
 content(function (err, res) {
   if(err){
-    console.log("failed "+ err);
+    console.log(clc.red("failed "+ err));
     process.exit(1);
   }
   fs.writeFileSync("output.html", list({results: redisBenchmarkParser.parse(res)}));
-  console.log('Run open output.html to view the report');
+  console.log(clc.green('Run open output.html to view the report'));
   process.exit(0);
 });

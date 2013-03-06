@@ -13,7 +13,7 @@ Usage
 =======
 It can be used in the binary mode
 
-`bin/report results-read-write-split.txt`
+`redis-benchmark-report results-read-write-split.txt`
 
 This generates the output file in the current folder as output.html. It can be opened to view the report.
 
@@ -21,11 +21,11 @@ This generates the output file in the current folder as output.html. It can be o
 
 similar result can also be achieved by piping the contents of the file to the report
 
-`cat results-read-write-split.txt | bin/report`
+`cat results-read-write-split.txt | redis-benchmark-report`
 
 or better still by piping the redis-benchmark command to report
 
-`redis-benchmark -c 10 -n 10000 -p 6379 | bin/report`
+`redis-benchmark -c 10 -n 10000 -p 6379 | redis-benchmark-report`
 
 Programmatic Use
 ===============
